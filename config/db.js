@@ -1,6 +1,5 @@
 import mongooes from 'mongoose';
-import { env } from './dotenv.js';
-mongooes.connect(env.MONGO_URL);
+mongooes.connect(process.env.MONGO_URL);
 
 const db = mongooes.connection
 
