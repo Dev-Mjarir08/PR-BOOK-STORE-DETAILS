@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Bookjar</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main>
+            <section class="hero">
+                <div class="hero-img">
+                    <img src="/images/hero-bg.png" class="w-100 object-fit-contain" alt="">
+                </div>
+                <div class="container mt-4">
+                    <div class="row align-items-center">
+                        <div class="col-9 p-0">
+                            <div class="">
+                                <input type="text" class="w-100 border border-1 " style="height: 3.3rem;"
+                                    placeholder="Search Book">
+                            </div>
+                        </div>
+                        <div class="col-3 p-0">
+                            <div class="w-100   d-flex justify-content-center align-items-center ps-4 gap-3 border border-1 rounded-end-3 rounded-end-3"
+                                style="height: 3.3rem; font-size:14px; ">
+                                <input type="radio">
+                                <label for="title">Title</label>
+                                <input type="radio">
+                                <label for="Writer">Writer</label>
+                                <input type="radio">
+                                <label for="title">Catagory</label>
+                                <button class="  p border border-0 rounded-end-3 rounded-end-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i><i class="bi bi-search fs-6 "
+                                            style="width: 50px; height: 40px; font-size: 20px;"></i></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cards">
+                <div class="container my-5">
+                    <div class="row g-4">
+
+                        <% books.map((book, index)=> { %>
+                            <div class="col-lg-4 col-md-6">
+
+                                <div class="card book-card border-0 shadow-sm">
+
+                                    <div class="book-img position-relative">
+                                        <img src="<%= book.imgurl %>" class="w-100" alt="Book Image">
+
+                                        <!-- Hover Overlay -->
+                                        <div class="book-overlay">
+                                            <span class="badge bg-warning mb-2">
+                                                <%= book.category %>
+                                            </span>
+
+                                            <% if(book.isAvailable){ %>
+                                                <span class="badge bg-success">Available</span>
+                                                <% } %>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <%= book.title %>
+                                        </h5>
+
+                                        <p class="text-muted small">
+                                            <%= book.description %>
+                                        </p>
+
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="fw-bold text-primary">
+                                                ₹ <%= book.price %>
+                                            </span>
+
+                                            <a href="/add/<%= book._id %>" class="btn btn-dark btn-sm">
+                                                Add
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <% }) %>
+
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
