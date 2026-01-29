@@ -44,12 +44,12 @@ app.get('/view-data', (req, res) => {
   bookSchema.find()
 
     .then((books) => {
-      res.redirect('pages/view-data', { books });
+      res.render('pages/view-data', { books });
     })
     .catch((err) => {
       console.log(err.message);
 
-      return res.redirect('./pages/view-data');
+      return res.render('./pages/view-data');
     })
 })
 
