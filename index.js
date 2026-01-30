@@ -30,8 +30,6 @@ app.get('/add-book', (req, res) => {
 app.post('/add-book', (req, res) => {
   bookSchema.create(req.body)
     .then(() => {
-      console.log(req.body);
-
       res.redirect('/add-book');
     })
     .catch((err) => {
