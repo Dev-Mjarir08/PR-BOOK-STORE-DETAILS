@@ -4,8 +4,8 @@ import db from './config/db.js';
 import bodyParser from 'body-parser';
 import bookSchema from './models/user.model.js';
 
+const port = process.env.PORT || 3000;
 
-const port = env.PORT || 3000;
 const app = express();
 
 app.set('view engine', 'ejs');
