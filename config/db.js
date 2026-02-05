@@ -13,5 +13,6 @@ db.on('connected', (err)=>{
         console.log('Db Connected');
     }
 })
+console.log('ENV MONGO_URL:', env.MONGO_URL);
 
 export default db;
