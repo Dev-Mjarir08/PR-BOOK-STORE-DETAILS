@@ -4,6 +4,7 @@ import db from './config/db.js';
 import bodyParser from 'body-parser';
 import bookSchema from './models/user.model.js';
 
+
 const port = env.PORT || 3000;
 const app = express();
 
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/add-book', (req, res) => {
-  return res.render('./pages/add-book');
+  return res.render('pages/add-book');
 })
 app.post('/add-book', (req, res) => {
   bookSchema.create(req.body)
@@ -49,7 +50,7 @@ app.get('/view-data', (req, res) => {
     .catch((err) => {
       console.log(err.message);
 
-      return res.render('./pages/view-data');
+      return res.render('pages/view-data');
     })
 })
 
