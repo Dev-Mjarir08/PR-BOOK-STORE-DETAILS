@@ -1,133 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Add Book</title>
 
     <!-- Bootstrap CSS -->
-    <link 
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-      rel="stylesheet"
-    >
-        <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
 
     </style>
 </head>
+
 <body>
     <%- include('../partials/header') %>
 
-<div class="book-form">
-    <h2>Add New Book</h2>
+        <div class="book-form">
+            <h2>Add New Book</h2>
 
-    <!-- FORM -->
-    <form action="/add-book" method="POST">
+            <!-- FORM -->
+            <form action="/add-book" method="POST">
                 <div class="mb-3">
-            <label class="form-label">Book Image</label>
-            <input 
-                type="text" 
-                name="imgurl" 
-                class="form-control" 
-                placeholder="Enter book image"
-                required
-            >
+                    <label class="form-label">Book Image</label>
+                    <input type="text" name="imgurl" class="form-control" placeholder="Enter book image" required>
+                </div>
+
+                <!-- Title -->
+
+                <div class="mb-3">
+                    <label class="form-label">Book Title</label>
+                    <input type="text" name="title" class="form-control" placeholder="Enter book title" required>
+                </div>
+
+                <!-- Author -->
+                <div class="mb-3">
+                    <label class="form-label">Author</label>
+                    <input type="text" name="author" class="form-control" placeholder="Author name" required>
+                </div>
+
+                <!-- Price -->
+                <div class="mb-3">
+                    <label class="form-label">Price</label>
+                    <input type="number" name="price" class="form-control" placeholder="Book price" min="0" required>
+                </div>
+
+                <!-- Category -->
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <select name="category" class="form-select" required>
+                        <option value="">Select category</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                        <option value="Education">Education</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Comics">Comics</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea name="description" class="form-control" rows="3"
+                        placeholder="Book description"></textarea>
+                </div>
+
+                <!-- Published Date -->
+                <div class="mb-3">
+                    <label class="form-label">Published Date</label>
+                    <input type="date" name="publishedAt" class="form-control">
+                </div>
+
+                <!-- Availability -->
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" name="isAvailable" value="true" checked>
+                    <label class="form-check-label">
+                        Available
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">
+                        Add Book
+                    </button>
+                </div>
+
+            </form>
         </div>
-
-        <!-- Title -->
-
-        <div class="mb-3">
-            <label class="form-label">Book Title</label>
-            <input 
-                type="text" 
-                name="title" 
-                class="form-control" 
-                placeholder="Enter book title"
-                required
-            >
-        </div>
-
-        <!-- Author -->
-        <div class="mb-3">
-            <label class="form-label">Author</label>
-            <input 
-                type="text" 
-                name="author" 
-                class="form-control" 
-                placeholder="Author name"
-                required
-            >
-        </div>
-
-        <!-- Price -->
-        <div class="mb-3">
-            <label class="form-label">Price</label>
-            <input 
-                type="number" 
-                name="price" 
-                class="form-control" 
-                placeholder="Book price"
-                min="0"
-                required
-            >
-        </div>
-
-        <!-- Category -->
-        <div class="mb-3">
-            <label class="form-label">Category</label>
-            <select name="category" class="form-select" required>
-                <option value="">Select category</option>
-                <option value="Fiction">Fiction</option>
-                <option value="Non-Fiction">Non-Fiction</option>
-                <option value="Education">Education</option>
-                <option value="Biography">Biography</option>
-                <option value="Comics">Comics</option>
-            </select>
-        </div>
-
-        <!-- Description -->
-        <div class="mb-3">
-            <label class="form-label">Description</label>
-            <textarea 
-                name="description" 
-                class="form-control" 
-                rows="3"
-                placeholder="Book description"
-            ></textarea>
-        </div>
-
-        <!-- Published Date -->
-        <div class="mb-3">
-            <label class="form-label">Published Date</label>
-            <input 
-                type="date" 
-                name="publishedAt" 
-                class="form-control"
-            >
-        </div>
-
-        <!-- Availability -->
-        <div class="form-check mb-3">
-            <input 
-                class="form-check-input" 
-                type="checkbox" 
-                name="isAvailable" 
-                value="true"
-                checked
-            >
-            <label class="form-check-label">
-                Available
-            </label>
-        </div>
-
-        <!-- Submit -->
-        <div class="d-grid">
-            <button type="submit" class="btn btn-primary">
-                Add Book
-            </button>
-        </div>
-
-    </form>
-</div>
 
 </body>
+
 </html>
