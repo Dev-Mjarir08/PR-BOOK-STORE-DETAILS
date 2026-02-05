@@ -1,8 +1,8 @@
-import mongooes from 'mongoose';
+import mongoose from 'mongoose';
 import { env } from './dotenv.js';
-mongooes.connect(env.MONGO_URL);
+mongoose.connect(env.MONGO_URL);
 
-const db = mongooes.connection
+const db = mongoose.connection
 
 db.on('connected', (err)=>{
     if(err){
