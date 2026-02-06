@@ -2,7 +2,7 @@ import express from 'express';
 import { env } from './config/dotenv.js';
 import db from './config/db.js';
 import bodyParser from 'body-parser';
-import bookSchema from './models/user.model.js';
+import books from './models/user.model.js';
 
 const port = process.env.PORT || 3000;
 
@@ -14,7 +14,7 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
-  bookSchema.find({})
+  books.find({})
     .then((books) => {
       res.render('index', { books });
     })
@@ -29,7 +29,7 @@ app.get('/add-book', (req, res) => {
   return res.render('pages/add-book');
 })
 app.post('/add-book', (req, res) => {
-  bookSchema.create(req.body)
+  books.create(req.body)
     .then(() => {
       console.log(req.body);
 
@@ -42,7 +42,7 @@ app.post('/add-book', (req, res) => {
 })
 
 app.get('/view-data', (req, res) => {
-  bookSchema.find({})
+  books.find({})
 
     .then((books) => {
       res.render('pages/view-data', { books });
@@ -56,7 +56,7 @@ app.get('/view-data', (req, res) => {
 
 app.get('/delete/:id', (req, res) => {
   const id = req.params.id;
-  bookSchema.findByIdAndDelete(id)
+  books.findByIdAndDelete(id)
     .then(() => {
       res.redirect('/view-data');
     })
@@ -68,7 +68,7 @@ app.get('/delete/:id', (req, res) => {
 
 app.get('/edit/:id', (req, res) => {
   const id = req.params.id;
-  bookSchema.findById(id)
+  books.findById(id)
     .then((book) => {
       res.render('pages/editData', { book });
     })
@@ -81,7 +81,7 @@ app.get('/edit/:id', (req, res) => {
 app.post('/edit/:id', (req, res) => {
   const id = req.params.id;
 
-  bookSchema.findByIdAndUpdate(id, req.body)
+  books.findByIdAndUpdate(id, req.body)
     .then(() => {
       res.redirect('/view-data');
     })
