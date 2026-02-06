@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/add-book', (req, res) => {
-  return res.render('pages/add-book');
+  return res.render('pages/add-book.ejs');
 })
 app.post('/add-book', (req, res) => {
   book.create(req.body)
