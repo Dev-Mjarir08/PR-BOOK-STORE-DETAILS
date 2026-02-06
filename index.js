@@ -14,7 +14,7 @@ app.use(express.static('public'));
 
 
 app.get('/', (req, res) => {
-  bookSchema.find()
+  bookSchema.find({})
     .then((books) => {
       res.render('index', { books });
     })
@@ -42,7 +42,7 @@ app.post('/add-book', (req, res) => {
 })
 
 app.get('/view-data', (req, res) => {
-  bookSchema.find()
+  bookSchema.find({})
 
     .then((books) => {
       res.render('pages/view-data', { books });
